@@ -1,0 +1,55 @@
+/* in frontend/src/components/Product.css */
+
+.product-card {
+  /* Remove default border */
+  border: none;
+
+  /* Add a subtle shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  /* Make the card "grow" on hover */
+  transition: all 0.2s ease-in-out;
+
+  /* Make sure card is 100% height of its Col */
+  height: 100%; 
+}
+
+.product-card:hover {
+  /* Make the shadow more pronounced on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Slightly lift the card up */
+  transform: translateY(-5px);
+}
+
+.product-image {
+  /* Keep image from touching card edges */
+  padding: 1rem;
+
+  /* Make sure image isn't huge */
+  max-height: 200px;
+  object-fit: contain; /* Keeps aspect ratio */
+  background-color: #f9f9f9; /* Light background for the image */
+  border-radius: 0.25rem;
+}
+
+.product-title {
+  /* This is the key for "Flipkart" style titles */
+  font-size: 1rem;
+  font-weight: 600;
+
+  /* Limit the title to 2 lines and add '...' */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 48px; /* Approx height for 2 lines */
+  margin-bottom: 0.75rem;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #212529; /* Dark text color */
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,38 @@
+/* in frontend/src/index.css */
+
+:root {
+  /* 1. Define our new brand accent color */
+  --color-primary: #6f42c1; /* A vibrant purple (Bootstrap's default purple) */
+  --color-primary-dark: #5a359a;
+}
+
+body {
+  margin: 0;
+  /* 2. Set the new, cleaner font family */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 3. This is the KEY: Set the soft background color */
+  background-color: #f0f4f9 !important;
+  color: #343a40; /* A darker default text color */
+}
+
+/* 4. Override all Bootstrap 'primary' buttons to use our new color */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  font-weight: 500;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* 5. Ensure all cards & list items stay white for contrast */
+.card, .list-group-item {
+  background-color: #ffffff;
+}
