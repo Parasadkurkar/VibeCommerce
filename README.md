@@ -2,9 +2,6 @@
 
 This project is a full-stack mock e-commerce shopping cart application built for the Vibe Commerce screening. It features a modern, responsive frontend built with React and a robust REST API backend powered by Node.js and Express.
 
-### 🎥 Live Demo / Video
-*(Optional: Insert your 1-2 minute Loom or YouTube demo link here)*
-
 ---
 
 ## ✨ Features
@@ -19,8 +16,6 @@ This project is a full-stack mock e-commerce shopping cart application built for
 ---
 
 ## 📸 Screenshots
-
-*(I recommend adding 3-4 screenshots here. Create a folder named `screenshots` in your main project folder and put your images there.)*
 
 | Homepage | Cart (With Items) |
 <img width="1882" height="912" alt="image" src="https://github.com/user-attachments/assets/ef0b4ce4-417b-491d-bb67-f6620b9fbe00" />
@@ -55,6 +50,7 @@ To get this project running locally, you will need to run the frontend and backe
 
 # 1. Clone the repository
 git clone https://github.com/Parasadkurkar/VibeCommerce.git
+
 cd E-Com
 
 # 2. Navigate to the backend folder
