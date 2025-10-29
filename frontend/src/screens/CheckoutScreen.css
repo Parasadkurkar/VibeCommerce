@@ -13,13 +13,13 @@
 }
 
 .checkout-form-section {
-  /* Adds a line between form sections */
+
   border-bottom: 1px solid #eee;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* --- Styles for the new Visual Summary --- */
+
 .summary-item {
   display: flex;
   align-items: center;

@@ -1,10 +1,10 @@
-/* in frontend/src/screens/CartScreen.css */
+
 
 .cart-item-card {
-  /* This makes each ListGroup.Item look like a separate card */
+
   background-color: #ffffff;
   border: none;
-  border-radius: 0.375rem; /* Bootstrap's 'rounded' value */
+  border-radius: 0.375rem; 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
@@ -33,7 +33,7 @@
 
 .remove-btn {
   font-size: 1.2rem;
-  color: #dc3545; /* Bootstrap's 'danger' color */
+  color: #dc3545;
   transition: all 0.2s ease;
 }
 
@@ -85,23 +85,23 @@
 
 .empty-cart-container p {
   font-size: 1.1rem;
-  color: #6c757d; /* Bootstrap's 'muted' color */
+  color: #6c757d;
   margin-bottom: 2rem;
 }
 .cart-quantity-toggle {
-  /* Set a fixed, compact width */
+  
   border: 1px solid #e0e0e0;
   border-radius: 0.375rem;
-  overflow: hidden; /* This is key to making it look seamless */
+  overflow: hidden;
   width: 100px;
 }
 
 .cart-quantity-display {
-  /* Center the number and make it read-only */
+
 width: 40px !important;
   text-align: center;
   padding: 0.25rem 0.5rem;
-  background-color: #ffffff; /* Match our card background */
+  background-color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   user-select: none;
@@ -113,31 +113,31 @@ width: 40px !important;
 }
 
 .cart-toggle-btn {
-  /* Style the +/- buttons */
+ 
 width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  /* --- The new "soft" styling --- */
+
   background-color: #ffffff;
-  color: var(--color-primary) !important; /* Use our purple accent for the icon */
+  color: var(--color-primary) !important;
   border: none;
-  border-radius: 0; /* Make it flush */
+  border-radius: 0;
   text-decoration: none;
-  box-shadow: none !important; /* Override all Bootstrap shadows */
+  box-shadow: none !important; 
   
-  /* --- The new animation --- */
+  
   transition: all 0.2s ease !important;
 }
 
 .cart-toggle-btn:hover {
-  /* "Pop" effect on hover */
+  
  background-color: rgba(111, 66, 193, 0.05) !important;
   color: var(--color-primary-dark) !important;
 }
 
 .cart-toggle-btn:active {
-  /* "Press" effect on click */
+  
   transform: scale(0.95); 
 }

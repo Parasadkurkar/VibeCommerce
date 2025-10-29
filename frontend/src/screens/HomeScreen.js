@@ -1,8 +1,7 @@
-// in frontend/src/screens/HomeScreen.js
 
 import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Product from '../components/Product'; // <-- IMPORT OUR NEW COMPONENT
+import Product from '../components/Product';
 
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
@@ -28,10 +27,8 @@ const HomeScreen = () => {
     <>
       <h1>Latest Products</h1>
       <Row>
-        {/* --- THIS IS THE UPDATED PART --- */}
         {products.map((product) => (
           <Col key={product._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-            {/* We render our new component for each product */}
             <Product product={product} />
           </Col>
         ))}

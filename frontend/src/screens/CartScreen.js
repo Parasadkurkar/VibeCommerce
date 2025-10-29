@@ -1,13 +1,12 @@
-// in frontend/src/screens/CartScreen.js
+
 
 import React from 'react';
 import { Link ,useNavigate } from 'react-router-dom';
-// Import InputGroup
+
 import { Row, Col, ListGroup, Image, Button, Card, InputGroup } from 'react-bootstrap'; 
 import { toast } from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
 import './CartScreen.css';
-// We no longer import QuantityToggle
 
 const CartScreen = () => {
   const { cartItems, cartTotal, removeFromCart, addToCart } = useCart();
@@ -26,7 +25,7 @@ const CartScreen = () => {
     }
   };
 
-  // If cart is empty, return the centered message first.
+
   if (cartItems.length === 0) {
     return (
       <div className="empty-cart-container">
@@ -44,7 +43,7 @@ const CartScreen = () => {
     );
   }
 
-  // If we get here, cart is NOT empty. Render the normal layout.
+
   return (
     <>
       <h1 className="mb-4">Shopping Cart</h1>
@@ -70,16 +69,16 @@ const CartScreen = () => {
                     ${item.price}
                   </Col>
 
-                  {/* --- THIS IS THE UPDATED BLOCK --- */}
+                  
                   <Col xs={7} md={3} className="d-flex justify-content-center">
-                    {/* Quantity Toggle JSX is now inlined */}
+                    
                     <InputGroup className="cart-quantity-toggle">
                       <Button
                         variant="outline-primary"
                         size="sm"
                         className="cart-toggle-btn"
                         onClick={() => {
-                          if (item.qty > 1) { // Stop at 1
+                          if (item.qty > 1) { 
                             addToCart(item._id, item.qty - 1);
                           }
                         }}
@@ -94,7 +93,7 @@ const CartScreen = () => {
                         size="sm"
                         className="cart-toggle-btn"
                         onClick={() => {
-                          if (item.qty < 10) { // Set a max limit of 10
+                          if (item.qty < 10) { 
                             addToCart(item._id, item.qty + 1);
                           }
                         }}
@@ -103,7 +102,7 @@ const CartScreen = () => {
                       </Button>
                     </InputGroup>
                   </Col>
-                  {/* --- END OF UPDATE --- */}
+                  
 
                   <Col xs={5} md={2} className="text-end">
                     <Button

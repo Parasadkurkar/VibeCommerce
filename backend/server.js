@@ -73,40 +73,29 @@ const products = [
   },
 ];
 
-// --- RENAMED THIS VARIABLE ---
 let globalCart = [];
-// -----------------------------
 
 app.get('/', (req, res) => {
   res.send('Vibe Commerce API is running!');
 });
 
-// for getting products
 app.get('/api/products', (req, res) => {
   res.json(products);
 });
 
-/**
- * @desc    Get all items in cart
- * @route   GET /api/cart
- */
+
 app.get('/api/cart', (req, res) => {
   const calculateTotal = () => {
-    // --- USE RENAMED VARIABLE ---
     return globalCart.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
   };
 
   res.json({
-    // --- USE RENAMED VARIABLE ---
     items: globalCart,
     total: calculateTotal(),
   });
 });
 
-/**
- * @desc    Add an item to the cart
- * @route   POST /api/cart
- */
+
 app.post('/api/cart', (req, res) => {
   const { productId, qty } = req.body;
   const product = products.find((p) => p._id === productId);
@@ -115,7 +104,6 @@ app.post('/api/cart', (req, res) => {
     return res.status(404).json({ message: 'Product not found' });
   }
 
-  // --- USE RENAMED VARIABLE ---
   const existItem = globalCart.find((x) => x._id === product._id);
 
   if (existItem) {
@@ -128,40 +116,28 @@ app.post('/api/cart', (req, res) => {
       price: product.price,
       qty: Number(qty),
     };
-    // --- USE RENAMED VARIABLE ---
     globalCart.push(cartItem);
   }
 
-  // --- USE RENAMED VARIABLE ---
   res.status(201).json(globalCart);
 });
 
-/**
- * @desc    Remove an item from the cart
- * @route   DELETE /api/cart/:id
- */
+
 app.delete('/api/cart/:id', (req, res) => {
   const productId = req.params.id;
 
-  // --- USE RENAMED VARIABLE ---
   globalCart = globalCart.filter((x) => x._id !== productId);
 
-  // --- USE RENAMED VARIABLE ---
   res.json({ message: 'Item removed', cart: globalCart });
 });
 
-/**
- * @desc    Mock checkout
- * @route   POST /api/checkout
- */
+
 app.post('/api/checkout', (req, res) => {
-  // This line is now SAFE because 'cartItems' does not conflict with 'globalCart'
   const { cartItems } = req.body;
 
-  // 1. Calculate the total again on the server for security
   const total = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
 
-  // 2. Create a mock receipt
+
   const receipt = {
     receiptId: `VIBE-${Date.now()}`,
     total: total,
@@ -169,16 +145,15 @@ app.post('/api/checkout', (req, res) => {
     timestamp: new Date().toISOString(),
   };
 
-  // 3. Clear the server-side cart
-  // --- USE RENAMED VARIABLE ---
+
   globalCart = [];
 
-  // 4. Send back the receipt
+
   res.status(200).json(receipt);
 });
 
 
-// Make sure this is *below* your routes
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.listen(PORT, () => {

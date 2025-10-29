@@ -1,4 +1,4 @@
-// in frontend/src/components/ReceiptModal.js
+
 
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
@@ -9,12 +9,12 @@ const ReceiptModal = ({ show, onHide, receipt }) => {
 
   const handleClose = () => {
     onHide();
-    // After closing the modal, send the user back to the homepage
+
     navigate('/');
   };
 
   if (!receipt) {
-    return null; // Don't render if there's no receipt
+    return null; 
   }
 
   return (

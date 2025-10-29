@@ -1,21 +1,21 @@
-/* in frontend/src/screens/LoginScreen.css */
+
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh; /* Gives vertical space to center */
+  min-height: 70vh; 
 }
 
 .login-card {
-  /* Reuse the same card style from our project */
+
   background-color: #ffffff;
   border: none;
   border-radius: 0.375rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   width: 100%;
-  max-width: 450px; /* Constrain the width */
-  padding: 2.5rem; /* Add generous padding */
+  max-width: 450px;
+  padding: 2.5rem; 
 }
 
 .login-title {
@@ -24,8 +24,7 @@
 }
 
 .signup-link {
-  color: var(--color-primary); /* Use our purple accent */
-  font-weight: 500;
+  color: var(--color-primary);
   text-decoration: none;
 }
 

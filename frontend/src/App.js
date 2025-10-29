@@ -17,7 +17,6 @@ function App() {
       <Router>
         <Toaster position="bottom-right" />
         <HeaderNavbar />
-      {/* We will add the Header component here later */}
       <main className="py-3">
         <Container>
             <Routes>
@@ -26,10 +25,8 @@ function App() {
               <Route path="/checkout" element={<CheckoutScreen />} />
               <Route path="/login" element={<LoginScreen />} />
             </Routes>
-          {/* We will add our Routes here later */}
         </Container>
       </main>
-      {/* We will add the Footer component here later */}
     </Router>
     </CartProvider>
   );

@@ -1,24 +1,23 @@
-// in frontend/src/context/CartContext.js
+
 
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// 1. Create the context
 const CartContext = createContext();
 
-// 2. Create a custom hook to use the context
+
 export const useCart = () => {
   return useContext(CartContext);
 };
 
-// 3. Define the API URL
+
 const API_URL = 'http://localhost:5000/api';
 
-// 4. Create the provider component
+
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
-  // Function to fetch the cart from the backend
+ 
   const loadCart = async () => {
     try {
       const res = await fetch(`${API_URL}/cart`);
@@ -30,12 +29,12 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Load the cart when the provider first mounts
+ 
   useEffect(() => {
     loadCart();
   }, []);
 
-  // Function to add/update an item (calls our POST API)
+  
   const addToCart = async (productId, qty) => {
     try {
       const res = await fetch(`${API_URL}/cart`, {
@@ -47,7 +46,7 @@ export const CartProvider = ({ children }) => {
       });
 
       if (res.ok) {
-        // After adding, reload the cart to get new total and items
+        
         await loadCart();
       } else {
         console.error('Failed to add to cart');
@@ -57,7 +56,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Function to remove an item (calls our DELETE API)
+  
   const removeFromCart = async (productId) => {
     try {
       const res = await fetch(`${API_URL}/cart/${productId}`, {
@@ -65,7 +64,7 @@ export const CartProvider = ({ children }) => {
       });
 
       if (res.ok) {
-        // After removing, reload the cart
+       
         await loadCart();
         return true;
       } else {
@@ -82,7 +81,7 @@ export const CartProvider = ({ children }) => {
     setCartTotal(0);
   };
 
-  // 5. Provide these values to all children components
+  
   const value = {
     cartItems,
     cartTotal,

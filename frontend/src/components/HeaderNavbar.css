@@ -1,26 +1,30 @@
-/* in frontend/src/components/HeaderNavbar.css */
+
 
 .navbar-light {
-  background-color: #ffffff !important; /* Force a clean white background */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* Match our card shadows */
+  background-color: #ffffff !important; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); 
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 1020; 
+
 }
 
 .navbar-brand-custom {
-  font-size: 1.5rem; /* Make the brand name stand out more */
+  font-size: 1.5rem; 
   font-weight: 700;
-  color: #212529 !important; /* Dark text */
+  color: #212529 !important; 
 }
 
 .nav-link-custom {
   font-size: 1.05rem;
   font-weight: 500;
   color: #495057 !important;
-   /* Slightly softer text color */
+   
    transition: color 0.2s ease;
 }
 
 .nav-link-custom:hover {
-  color: var(--color-primary) !important; /* Bootstrap primary blue on hover */
+  color: var(--color-primary) !important;
 }

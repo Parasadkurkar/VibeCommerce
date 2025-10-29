@@ -1,4 +1,3 @@
-// in frontend/src/screens/CheckoutScreen.js
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,48 +6,46 @@ import { useCart } from '../context/CartContext';
 import { toast } from 'react-hot-toast';
 import './CheckoutScreen.css'; 
 
-// 1. IMPORT THE MODAL
 import ReceiptModal from '../components/ReceiptModal'; 
 
 const CheckoutScreen = () => {
-  // 2. ADD 'clearCart'
   const { cartItems, cartTotal, clearCart } = useCart(); 
   const navigate = useNavigate();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  // 3. UNCOMMENT MODAL STATE
+
   const [showModal, setShowModal] = useState(false);
   const [receipt, setReceipt] = useState(null);
 
   const itemCount = cartItems.reduce((acc, item) => acc + item.qty, 0);
 
   React.useEffect(() => {
-    if (cartItems.length === 0 && !receipt) { // Don't redirect if we just placed an order
+    if (cartItems.length === 0 && !receipt) { 
       navigate('/cart');
     }
   }, [cartItems, navigate, receipt]);
 
-  // 4. --- UPDATE THE SUBMIT HANDLER ---
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     
     try {
-      // Call the backend API
+      
       const res = await fetch('http://localhost:5000/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ cartItems, name, email }), // Send cart and user info
+        body: JSON.stringify({ cartItems, name, email }), 
       });
 
       if (res.ok) {
         const data = await res.json();
-        setReceipt(data);     // Save the receipt
-        setShowModal(true);   // Show the modal
-        clearCart();          // Clear the cart in our frontend state
+        setReceipt(data);     
+        setShowModal(true);   
+        clearCart();          
         toast.success('Order placed successfully!');
       } else {
         toast.error('Failed to place order. Please try again.');
@@ -61,7 +58,6 @@ const CheckoutScreen = () => {
 
   return (
     <>
-      {/* 5. UNCOMMENT THE MODAL RENDER */}
       {receipt && (
         <ReceiptModal
           show={showModal}
@@ -72,13 +68,10 @@ const CheckoutScreen = () => {
 
       <h1 className="mb-4">Checkout</h1>
       <Row>
-        {/* ... (The rest of the JSX is identical) ... */}
         
-        {/* --- Left Column: Form --- */}
         <Col md={7}>
           <Card className="summary-card p-4">
             <Form onSubmit={submitHandler}>
-              {/* Customer Info Section */}
               <div className="checkout-form-section">
                 <h4 className="mb-3">Customer Information</h4>
                 
@@ -107,7 +100,6 @@ const CheckoutScreen = () => {
                 </Form.Floating>
               </div>
 
-              {/* Payment Details Section */}
               <div className="checkout-form-section">
                 <h4 className="mb-3">Payment Details (Mock)</h4>
                 <Form.Floating className="mb-3">
@@ -122,7 +114,6 @@ const CheckoutScreen = () => {
                 </Form.Floating>
               </div>
 
-              {/* Submit Button */}
               <Button type="submit" variant="primary" className="w-100 p-3 fs-5">
                 Place Order & Pay ${cartTotal}
               </Button>
@@ -130,7 +121,6 @@ const CheckoutScreen = () => {
           </Card>
         </Col>
 
-        {/* --- Right Column: Summary --- */}
         <Col md={5}>
           <Card className="summary-card">
             <ListGroup variant="flush">
@@ -140,7 +130,6 @@ const CheckoutScreen = () => {
                 </h2>
               </ListGroup.Item>
 
-              {/* Visual Item Loop */}
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id} className="summary-item">
                   <Image
@@ -160,7 +149,6 @@ const CheckoutScreen = () => {
                 </ListGroup.Item>
               ))}
 
-              {/* Subtotal Section */}
               <ListGroup.Item>
                 <Row className="mt-2">
                   <Col>Subtotal ({itemCount} items)</Col>
@@ -172,7 +160,6 @@ const CheckoutScreen = () => {
                 </Row>
               </ListGroup.Item>
 
-              {/* Total Section */}
               <ListGroup.Item>
                 <Row className="fs-5 fw-bold">
                   <Col>Order Total</Col>
